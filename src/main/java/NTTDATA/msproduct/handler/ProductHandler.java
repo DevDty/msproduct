@@ -35,6 +35,16 @@ public class ProductHandler {
                 .switchIfEmpty(ServerResponse.notFound().build());
     }
 
+    public Mono<ServerResponse> findByProductName(ServerRequest request){
+        String productName = request.pathVariable("productName");
+        return service.findByProductName(productName)
+                .flatMap(r -> ServerResponse.ok()
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .bodyValue(r)
+                )
+                .switchIfEmpty(ServerResponse.notFound().build());
+    }
+
     public Mono<ServerResponse> findAll (ServerRequest request){
         return ServerResponse.ok()
                 .contentType(MediaType.APPLICATION_JSON)

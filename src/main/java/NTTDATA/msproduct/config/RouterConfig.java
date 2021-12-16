@@ -18,7 +18,8 @@ public class RouterConfig {
                 .andRoute(POST("/product"), handler::create)
                 .andRoute(GET("/product"), handler::findAll)
                 .andRoute(PUT("/product/{id}"), handler::update)
-                .andRoute(DELETE("/product/{id}"), handler::delete);
+                .andRoute(DELETE("/product/{id}"), handler::delete)
+                .andRoute(GET("/product/productName/{productName}"), handler::findByProductName);
 
     }
 }

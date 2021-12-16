@@ -33,4 +33,9 @@ public class ProductServiceImpl implements ProductService {
     public Mono<Void> delete(Product product) {
         return repository.delete(product);
     }
+
+    @Override
+    public Mono<Product> findByProductName(String productName) {
+        return repository.findByProductName(productName);
+    }
 }

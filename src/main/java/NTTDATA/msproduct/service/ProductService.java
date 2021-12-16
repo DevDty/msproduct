@@ -9,4 +9,5 @@ public interface ProductService {
     public Mono<Product> findById(String id);
     public Flux<Product> findAll();
     public Mono<Void> delete(Product product);
+    public Mono<Product> findByProductName(String productName);
 }
